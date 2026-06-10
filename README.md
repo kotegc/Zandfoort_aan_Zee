@@ -1,72 +1,40 @@
-# PROJECT TEMPLATE
+# Zandvoort aan Zee
 
-## Folder Structure
+Computational fabrication tools for PDE-driven surface textures and FDM/clay toolpath generation.
 
-    01_Docs/          — contracts, briefs, specifications, deliverable docs
-    02_CAD_Working/   — working CAD files, not for release
-    03_CAD_Release/   — approved/released CAD, versioned by filename
-    04_ID/            — visual assets, renders, branding, presentations
-    05_Notes/         — markdown notes, research, references
-    06_Code/          — all scripts, tools, and code assets
+## Project Structure
 
----
+    01_Docs/          — project documentation
+    02_CAD_Working/   — Rhino/Grasshopper files
+    03_CAD_Release/   — released CAD
+    04_ID/            — visual assets and presentations
+    05_Notes/         — research notes
+    06_Code/          — all code (see below)
 
-## Starting a New Project
+## 06_Code Structure
 
-**1. Duplicate this folder**
+    hops_server/      — Grasshopper Hops server (Python 3.12)
+    solvers/          — pure PDE solvers, numpy only
+    utils/            — shared utilities
+    notebooks/        — Jupyter notebooks for prototyping
+    sketches/         — throwaway scripts
 
-Copy 001_TEMPLATE and rename it using the project serial convention:
+## Hops Server Setup
 
-    [CLIENT]-[YEAR]-[Project_Name]
-    e.g. ZAN-2025-Zandfoort_aan_Zee
+    cd 06_Code/hops_server
+    py -3.12 -m venv venv
+    venv\Scripts\activate
+    pip install -r requirements.txt
+    python app.py
 
-**2. Initialize a git repo**
+Server runs on http://127.0.0.1:5000
 
-Open PowerShell inside the new project folder:
+## Solvers
 
-    cd path\to\CLIENT-YEAR-Project_Name
-    git init
+- **Swift-Hohenberg** — spectral semi-implicit, stripe/labyrinth patterns
+- **Kuramoto-Sivashinsky** — ETDRK4, turbulent pattern formation
+- **Gray-Scott** — reaction-diffusion, spot and stripe patterns
 
-**3. Create a repo on GitHub**
+## Status
 
-Go to github.com, create a new empty repository named to match your
-project serial. Then connect it locally:
-
-    git remote add origin https://github.com/YOURUSERNAME/REPO-NAME.git
-
-**4. Make your first commit**
-
-    git add .
-    git commit -m "project init"
-    git push -u origin main
-
-**5. Edit this README**
-
-Replace these instructions with a description of the actual project.
-Keep the folder structure section and update it if the structure
-diverges from the template.
-
----
-
-## Git Conventions
-
-Only 06_Code/ and markdown files in 05_Notes/ are tracked by git.
-All CAD, renders, and binary assets are ignored — see .gitignore.
-
-Commit messages should describe what changed, not just that something
-changed. Good: "add zero-crossing extraction per row". Bad: "update".
-
-Commit often. A commit after every working session is a reasonable
-minimum habit.
-
----
-
-## Backup
-
-Git is version control, not backup. CAD files, assets, and anything
-not tracked by git should be covered by OneDrive or equivalent.
-Make sure this project folder is inside your synced directory.
-
----
-
-*Delete everything above this line when the project is underway.*
+Active development. Toolpath generation in progress.
