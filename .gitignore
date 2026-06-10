@@ -1,0 +1,26 @@
+# CAD and design files
+01_Docs
+02_CAD_Working/
+03_CAD_Release/
+04_ID/
+
+# Common binary formats
+*.3dm
+*.gh
+*.ghx
+*.obj
+*.stl
+*.step
+*.iges
+*.ai
+*.psd
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.mp4
+*.zip
+
+# Keep code and notes
+!06_Code/
+!05_Notes/*.md
